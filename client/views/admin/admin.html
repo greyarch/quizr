@@ -1,0 +1,19 @@
+<template name="admin">
+  <div class="row-fluid" style="margin-top:1em;">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <button type="button" id="btn-new" class="btn btn-success btn-lg btn-block">Създай нов</button>
+      <ul class="list-group">
+        {{#each quizes}}
+        <li class="list-group-item {{activeQuiz}}">{{name}}</li>
+        {{/each}}
+      </ul>
+      <button type="button" id="btn-delete" class="btn btn-danger btn-lg btn-block">Изтрий избрания</button>
+    </div>
+    <div class="col-md-7">
+      <textarea id="q" style="width:100%;" rows="40">{{quiz}}</textarea>
+      <button type="button" id="btn-save" class="btn btn-primary btn-lg btn-block">Запази промените</button>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</template>
