@@ -1,22 +1,19 @@
 Template.quiz.created = ->
-  Meteor.subscribe 'quiz', @data.quiz
-  Session.setDefault('currentQuestion', 1)
-  Session.setDefault('correctCount', 0)
+  Session.set('currentQuestion', 1)
+  Session.set('correctCount', 0)
 
+Template.quiz.rendered = ->
+  Meteor.subscribe 'quiz', @data.quiz
 
 Template.quiz.helpers
-  quiz: -> Quizes.findOne {}, transform: (quiz) ->
-    Session.set 'questionsCount', quiz.questions.length
-    # $('body').css('background-image', "url(#{quiz.image})")
-    # $('body').css('background-repeat', 'no-repeat')
-    # $('body').css('background-size', 'cover')
+  quiz: ->
+    quiz = Quizes.findOne(slug: @quiz)
+    Session.set 'questionsCount', quiz?.questions?.length
     quiz
 
 Template.question.events
   'click button': (e, t) ->
-    console.log @
     if @correct then Session.set('correctCount', Session.get('correctCount') + 1)
-
     curQ = Session.get 'currentQuestion'
     if Session.equals('questionsCount', curQ)
       Router.go 'results'
