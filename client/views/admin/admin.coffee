@@ -1,12 +1,11 @@
-Template.admin.rendered = ->
+Template.adminold.rendered = ->
   Meteor.subscribe 'quizes'
 
-Template.admin.helpers
+Template.adminold.helpers
   quizes: -> Quizes.find()
-  quiz: -> EJSON.stringify(Quizes.findOne(_id: Session.get('selectedQuizId')), indent: 4)
   activeQuiz: -> if Session.equals('selectedQuizId', @_id) then 'active' else ''
 
-Template.admin.events
+Template.adminold.events
   'click #btn-save': (e, t) -> Meteor.call 'updateQuiz', EJSON.parse(t.find('#q').value)
   'click #btn-delete': -> Meteor.call 'removeQuiz', Session.get('selectedQuizId')
   'click #btn-new': ->
@@ -14,6 +13,10 @@ Template.admin.events
     if quizName then Meteor.call 'addQuiz', createQuiz(quizName), (err, res) ->
       unless err then Session.set 'selectedQuizId', res
   'click li': -> Session.set 'selectedQuizId', @_id
+
+Template.quizDetails.helpers
+  quiz: -> Quizes.findOne _id: Session.get('selectedQuizId')
+  checked: -> if @correct then 'checked' else ''
 
 createQuiz = (qn) ->
     name: qn.trim()

@@ -1,4 +1,4 @@
-<template name="admin">
+<template name="adminold">
   <div class="row-fluid" style="margin-top:1em;">
     <div class="col-md-1"></div>
     <div class="col-md-3">
@@ -11,9 +11,50 @@
       <button type="button" id="btn-delete" class="btn btn-danger btn-lg btn-block">Изтрий избрания</button>
     </div>
     <div class="col-md-7">
-      <textarea id="q" style="width:100%;" rows="40">{{quiz}}</textarea>
-      <button type="button" id="btn-save" class="btn btn-primary btn-lg btn-block">Запази промените</button>
+      {{> quizDetails}}
     </div>
     <div class="col-md-1"></div>
   </div>
+</template>
+
+<template name="quizDetails">
+  <form>
+    {{#with quiz}}
+    <div class="form-group">
+      <label for="quizName">Name</label>
+      <input class="form-control" id="quizName" placeholder="Enter name" value="{{name}}">
+    </div>
+    <div class="form-group">
+      <label for="quizSlug">Slug</label>
+      <input class="form-control" id="quizSlug" placeholder="Enter slug" value="{{slug}}">
+    </div>
+    <div class="form-group">
+      <label for="quizDescription">Description</label>
+      <textarea class="form-control" id="quizDescription" rows="3">{{description}}</textarea>
+    </div>
+    <label>Questions</label>
+    <div style="padding-left: 2em;">
+    {{#each questions}}
+    <div class="form-group">
+      <label for="quizQuestions{{ord}}">Question</label>
+      <input class="form-control" id="quizQuestions{{ord}}" placeholder="Enter question" value="{{question}}">
+
+      <label>Answers</label>
+      <div style="padding-left: 2em;">
+      {{#each answers}}
+      <div class="form-group">
+        <label>Answer</label>
+        <div class="input-group">
+          <div class="input-group-addon"><input type="checkbox" checked="{{checked}}"></div>
+          <input type="text" class="form-control" placeholder="Enter answer" value="{{text}}">
+        </div>
+      </div>
+      {{/each}}
+      </div>
+    </div>
+    {{/each}}
+    </div>
+    {{/with}}
+    <button type="button" id="btn-save" class="btn btn-primary btn-lg btn-block">Запази промените</button>
+  </form>
 </template>
