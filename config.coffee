@@ -1,9 +1,9 @@
 @AdminConfig =
   name: 'Quizer'
   nonAdminRedirectRoute: 'entrySignIn'
-  adminEmails: ['gantchok@yahoo.com']
+  adminEmails: ['gantchok@yahoo.com', 's.shivarov@gmail.com']
   dashboard:
-    homeUrl: '/admin'
+    homeUrl: '/'
   collections:
     Quizes:
       icon: 'list'
@@ -13,3 +13,10 @@
         {label: 'Публикуван', name: 'published'}
         {label: 'Линк', name: 'slug'}
       ]
+
+Meteor.startup ->
+  AccountsEntry.config
+    homeRoute: '/'
+    dashboardRoute: '/admin'
+    profileRoute: 'profile'
+    passwordSignupFields: 'EMAIL_ONLY'
