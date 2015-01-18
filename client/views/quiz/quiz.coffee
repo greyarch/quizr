@@ -13,17 +13,17 @@ Template.quiz.helpers
     Session.set 'questionsCount', quiz?.questions?.length
     quiz
   showStartPage: -> Session.equals 'currentQuestion', 0
+  showResultsPage: -> Session.equals 'currentQuestion', 'results'
 
 Template.quiz.destroyed = ->
     $('body').css 'background-image', '' # a bit hacky way to reset the background
-
 
 Template.question.events
   'click button': (e, t) ->
     if @correct then Session.set('correctCount', Session.get('correctCount') + 1)
     curQ = Session.get 'currentQuestion'
     if Session.equals('questionsCount', curQ)
-      Router.go 'results'
+      Session.set 'currentQuestion', 'results'
     else
       Session.set 'currentQuestion', curQ + 1
 
@@ -32,3 +32,6 @@ Template.question.helpers
 
 Template.startPage.events
   'click #startButton': (e, t) -> Session.set('currentQuestion', 1)
+
+Template.results.helpers
+  result: -> 100 * Session.get('correctCount') / Session.get('questionsCount')

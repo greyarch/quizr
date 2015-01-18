@@ -1,17 +1,21 @@
 <template name="quiz">
   {{#with quiz}}
   <div id="quiz-content" class="row" style="color: white;">
-  {{#if showStartPage}}
-    {{> startPage}}
-  {{else}}
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      {{#each questions}}
-      {{> question}}
-      {{/each}}
+    {{#unless showResultsPage}}
+      {{#if showStartPage}}
+        {{> startPage}}
+      {{else}}
+        {{#each questions}}
+        {{> question}}
+        {{/each}}
+      {{/if}}
+    {{else}}
+      {{> results}}
+    {{/unless}}
     </div>
     <div class="col-md-3"></div>
-  {{/if}}
   </div>
   {{/with}}
 </template>
@@ -24,13 +28,5 @@
     {{#each answers}}
     <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
     {{/each}}
-  </div>
-</template>
-
-<template name="startPage">
-  <div id="start-page" class="col-md-3">
-    <h1>{{name}}</h1>
-    <h2>{{description}}</h2>
-    <button id="startButton" type="button" class="btn btn-default btn-lg btn-block">Старт</button>
   </div>
 </template>
