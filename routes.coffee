@@ -4,7 +4,6 @@ Meteor.startup ->
     layoutTemplate: 'layout'
 
   Router.map ->
-    @route 'admin'
     @route 'results'
     @route 'quiz',
       path: '/q/:quiz'
