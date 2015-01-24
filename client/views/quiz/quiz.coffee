@@ -2,9 +2,6 @@ Template.quiz.created = ->
   Session.set('currentQuestion', 0)
   Session.set('correctCount', 0)
 
-Template.quiz.rendered = ->
-  Meteor.subscribe 'quiz', @data.quiz
-
 Template.quiz.helpers
   quiz: ->
     quiz = Quizes.findOne(slug: @quiz)
