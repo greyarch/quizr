@@ -1,5 +1,5 @@
 @AdminConfig =
-  name: 'Quizer'
+  name: 'Quizzer'
   nonAdminRedirectRoute: 'entrySignIn'
   adminEmails: ['gantchok@yahoo.com', 's.shivarov@gmail.com']
   dashboard:
