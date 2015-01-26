@@ -12,6 +12,6 @@ Meteor.startup ->
       data: -> {'quiz' : @params.quiz}
     @route 'root',
       path: '/'
-      template: 'quizes'
+      template: 'quizzes'
       waitOn: ->
-        Meteor.subscribe 'quizes'
+        Meteor.subscribe 'quizzes'

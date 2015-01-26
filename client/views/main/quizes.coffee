@@ -1,2 +1,2 @@
-Template.quizes.helpers
-  quizes: -> Quizes.find()
+Template.quizzes.helpers
+  quizzes: -> Quizzes.find()

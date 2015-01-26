@@ -1,8 +1,8 @@
-Meteor.publish 'quizes', ->
+Meteor.publish 'quizzes', ->
   user = Meteor.users.findOne(_id: @userId)
   if user && ('admin' in user.roles)
-    Quizes.find()
+    Quizzes.find()
   else
-    Quizes.find published: true
+    Quizzes.find published: true
 
-Meteor.publish 'quiz', (slug) -> Quizes.find slug: slug
+Meteor.publish 'quiz', (slug) -> Quizzes.find slug: slug

@@ -5,7 +5,7 @@
   dashboard:
     homeUrl: '/'
   collections:
-    Quizes:
+    Quizzes:
       icon: 'list'
       color: 'green'
       tableColumns: [

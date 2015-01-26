@@ -4,7 +4,7 @@ Template.quiz.created = ->
 
 Template.quiz.helpers
   quiz: ->
-    quiz = Quizes.findOne(slug: @quiz)
+    quiz = Quizzes.findOne(slug: @quiz)
     $('body').css('background-image', "url(#{quiz?.image})") # a bit hacky way to set the background
     $('body').css('background-size', 'cover')
     Session.set 'questionsCount', quiz?.questions?.length
@@ -31,4 +31,10 @@ Template.startPage.events
   'click #startButton': (e, t) -> Session.set('currentQuestion', 1)
 
 Template.results.helpers
-  result: -> 100 * Session.get('correctCount') / Session.get('questionsCount')
+  resultText: ->
+    res = Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))
+    resultRange = _.find(@results, (result) -> result?.bottom <= res <= result?.top)
+    if resultRange
+      resultRange.text
+    else
+      "Вие отговорихте вярно на #{res}% от въпросите."
