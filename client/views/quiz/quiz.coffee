@@ -34,7 +34,4 @@ Template.results.helpers
   resultText: ->
     res = Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))
     resultRange = _.find(@results, (result) -> result?.bottom <= res <= result?.top)
-    if resultRange
-      resultRange.text
-    else
-      "Вие отговорихте вярно на #{res}% от въпросите."
+    "Вие отговорихте вярно на #{res}% от въпросите. #{resultRange.text}"
