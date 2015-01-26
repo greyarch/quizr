@@ -31,7 +31,9 @@ Template.startPage.events
   'click #startButton': (e, t) -> Session.set('currentQuestion', 1)
 
 Template.results.helpers
+  result: -> calculateResult()
   resultText: ->
-    res = Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))
-    resultRange = _.find(@results, (result) -> result?.bottom <= res <= result?.top)
-    "Вие отговорихте вярно на #{res}% от въпросите. #{resultRange.text}"
+    res = calculateResult()
+    _.find(@results, (result) -> result?.bottom <= res <= result?.top).text
+
+calculateResult = -> Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))
