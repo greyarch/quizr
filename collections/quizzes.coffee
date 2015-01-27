@@ -61,6 +61,7 @@ Meteor.startup ->
     results:
       type: [ResultRangeSchema]
       label: 'Интервал'
+      optional: true
     questions:
       type: [QuestionSchema]
       label: 'Въпрос'
