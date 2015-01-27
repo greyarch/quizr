@@ -13,10 +13,3 @@
         {label: 'Публикуван', name: 'published'}
         {label: 'Линк', name: 'slug'}
       ]
-
-Meteor.startup ->
-  AccountsEntry.config
-    homeRoute: '/'
-    dashboardRoute: '/admin'
-    profileRoute: 'profile'
-    passwordSignupFields: 'EMAIL_ONLY'

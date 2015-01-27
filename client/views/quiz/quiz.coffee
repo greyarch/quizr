@@ -35,5 +35,6 @@ Template.results.helpers
   resultText: ->
     res = calculateResult()
     _.find(@results, (result) -> result?.bottom <= res <= result?.top).text
+  slug: -> @quiz
 
 calculateResult = -> Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))
