@@ -1,4 +1,4 @@
 Meteor.methods
-  addQuiz: (doc) -> Quizes.insert doc
-  updateQuiz: (doc) -> Quizes.update {_id: doc._id}, doc
-  removeQuiz: (docId) -> Quizes.remove _id: docId
+  addQuiz: (doc) -> Quizzes.insert doc
+  updateQuiz: (doc) -> Quizzes.update {_id: doc._id}, doc
+  removeQuiz: (docId) -> Quizzes.remove _id: docId

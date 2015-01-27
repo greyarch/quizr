@@ -1,7 +1,42 @@
-@Quizes = new Mongo.Collection 'quizes'
+@Quizzes = new Mongo.Collection 'quizes'
 
 Meteor.startup ->
-  Quizes.attachSchema new SimpleSchema
+  ResultRangeSchema = new SimpleSchema
+    "bottom":
+      type: Number
+      label: 'Долна граница, %'
+    "top":
+      type: Number
+      label: 'Горна граница, %'
+    "text":
+      type: String
+      label: 'Текст за този интервал'
+
+  AnswerSchema = new SimpleSchema
+    "text":
+      type: String
+      label: '* Текст'
+    "correct":
+      type: Boolean
+      label: 'Това е верен отговор'
+
+  QuestionSchema = new SimpleSchema
+    "question":
+      type: String
+      label: '* Текст'
+    "ord":
+      type: Number
+      label: '* Пореден номер'
+    "image":
+      type: String
+      label: 'Линк към картинка'
+      optional: true
+      regEx: SimpleSchema.RegEx.Url
+    "answers":
+      type: [AnswerSchema]
+      label: 'Отговор'
+
+  Quizzes.attachSchema new SimpleSchema
     name:
       type: String
       label: '* Заглавие'
@@ -23,26 +58,9 @@ Meteor.startup ->
       label: 'Линк към картинка'
       optional: true
       regEx: SimpleSchema.RegEx.Url
+    results:
+      type: [ResultRangeSchema]
+      label: 'Интервал'
     questions:
-      type: [Object]
+      type: [QuestionSchema]
       label: 'Въпрос'
-    "questions.$.question":
-      type: String
-      label: '* Текст'
-    "questions.$.ord":
-      type: Number
-      label: '* Пореден номер'
-    "questions.$.image":
-      type: String
-      label: 'Линк към картинка'
-      optional: true
-      regEx: SimpleSchema.RegEx.Url
-    "questions.$.answers":
-      type: [Object]
-      label: 'Отговор'
-    "questions.$.answers.$.text":
-      type: String
-      label: '* Текст'
-    "questions.$.answers.$.correct":
-      type: Boolean
-      label: 'Това е верен отговор'

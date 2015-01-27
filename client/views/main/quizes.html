@@ -1,12 +1,18 @@
-<template name="quizes">
+<template name="quizzes">
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <ul class="list-group">
-      {{#each quizes}}
-        <a href="/q/{{slug}}" class="list-group-item">{{name}}</a>
+      <div class="list-group" style="margin-top:2em;">
+      {{#each quizzes}}
+        <a href="/q/{{slug}}" class="list-group-item">
+          <h1 style="background-image:url({{image}}); background-size:cover; height:10em; style=margin:0;">
+            <div style="padding: 1em;" class="white-text">
+              {{name}}
+            </div>
+          </h1>
+        </a>
       {{/each}}
-      </ul>
+      </div>
     </div>
     <div class="col-md-3"></div>
   </div>
