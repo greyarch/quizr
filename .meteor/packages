@@ -12,6 +12,8 @@ iron:router
 accounts-base
 accounts-password
 fortawesome:fontawesome
-yogiben:admin
 joshowens:accounts-entry
 aldeed:simple-schema
+joshowens:shareit
+gadicohen:phantomjs
+yogiben:admin

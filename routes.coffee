@@ -13,5 +13,6 @@ Meteor.startup ->
     @route 'root',
       path: '/'
       template: 'quizzes'
+      layout: false
       waitOn: ->
         Meteor.subscribe 'quizzes'

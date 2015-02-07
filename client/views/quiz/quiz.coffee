@@ -30,11 +30,29 @@ Template.question.helpers
 Template.startPage.events
   'click #startButton': (e, t) -> Session.set('currentQuestion', 1)
 
+Template.results.created = ->
+  console.log @
+  $('meta[property^="og:"]').remove()
+  $('<meta>', { property: 'og:image', content: 'http://files.quizzer.bg/Shutta/cover.jpg' }).appendTo 'head'
+  $('<meta>', { property: 'og:type', content: 'article' }).appendTo 'head'
+  $('<meta>', { property: 'og:site_name', content: location.hostname }).appendTo 'head'
+  $('<meta>', { property: 'og:url', content: location.origin + location.pathname }).appendTo 'head'
+  $('<meta>', { property: 'og:title', content: "Quiiiiiizzzzer" }).appendTo 'head'
+  $('<meta>', { property: 'og:description', content: 'This is description' }).appendTo 'head'
+
 Template.results.helpers
   result: -> calculateResult()
   resultText: ->
     res = calculateResult()
-    _.find(@results, (result) -> result?.bottom <= res <= result?.top).text
-  slug: -> @slug
+    _.find(@results, (result) -> result?.bottom <= res <= result?.top)?.text
+  # shareData: ->
+  title: -> encodeURIComponent @name
+  author: -> encodeURIComponent 'http://quizzer.bg'
+  description: -> encodeURIComponent @description
+  url:  -> encodeURIComponent(location.origin + location.pathname)
+  # sitenap:  -> 'http://qzr.meteor.com'
+  # thumbnail: -> 'http://files.quizzer.bg/Shutta/cover.jpg'
+  image : -> encodeURIComponent 'http://files.quizzer.bg/Shutta/cover.jpg'
+
 
 calculateResult = -> Math.round(100 * Session.get('correctCount') / Session.get('questionsCount'))

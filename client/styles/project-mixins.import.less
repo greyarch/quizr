@@ -1,0 +1,227 @@
+/**
+ * @project         medbase
+ * @version         1.0  26-09-2014
+ * @author          New Identity http://new-identity.eu  - zarro
+ * @copyright       Copyright (C) 2009 - 2014 New Identity. All rights reserved.
+ * @license         http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
+ */
+
+.button-variant-outline
+(
+
+    @color;
+    @background;
+    @border-color;
+    @border-width: 2px;
+    @color-active;
+    @background-active;
+    @border-color-active;
+
+    @color-hover: @color-active;
+    @background-hover: @background-active;
+    @border-color-hover: @border-color-active;
+
+) {
+    @correction: (unit(@border-width) - 1) * 2; //minus normal buttons border width
+    @padding-vertical-cor: unit(unit(@padding-base-vertical) - @correction, px);
+    @padding-horizontal-cor: unit(unit(@padding-base-horizontal) - @correction, px);
+
+    color: @color;
+    background-color: @background;
+    border: @border-width @border-color solid;
+
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open .dropdown-toggle & {
+
+        .box-shadow(none);
+        color: @color-hover;
+        background-color: @background-hover;
+        border-color: @border-color-hover;
+    }
+
+    &:active,
+    &.active,
+    .open .dropdown-toggle & {
+        color: @color-active;
+        background-color: @background-active;
+        border-color: @border-color-active;
+        background-image: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: lighten(@background, 15%);
+            border-color: lighten(@border-color, 15%);
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
+    }
+
+}
+
+
+// Stretch evenly with justify
+//-------------------------------------------------
+//Add sprear evenly to the container and make every item inlilen-block
+.spread-evently() {
+    text-align: justify;
+    -ms-text-justify: distribute-all-lines;
+    text-justify: distribute-all-lines;
+}
+
+//Add extra stretch element
+.stretch {
+    width: 100% !important;
+    display: inline-block !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+}
+
+
+//ink ripple effects css
+.ink {
+    display: block;
+    position: absolute;
+    background: #efefef;
+    border-radius: 100%;
+    //    .lh-scale(0);
+}
+
+/*animation effect*/
+//.ink.animate {
+//    .lh-animation(ripple 0.65s linear);
+//}
+//
+//.lh-keyframes(~'ripple, 100% {opacity: 0; transform: scale(1.5)}');
+
+//Thumbnails Effects
+/*Thumbnails
+------------------------------------*/
+.kenburn-img-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+
+.thumbnail-kenburn img {
+    //    left: 10px;
+    //    margin-left: -10px;
+    position: relative;
+    .lh-transition(all 0.8s ease-in-out);
+}
+
+.thumbnail-kenburn:hover img {
+    .lh-transform(scale(1.2) rotate(2deg));
+}
+
+.center-underline (
+    @link-color:white;
+    @link-color-hover:@link-color;
+    @undeline-color:@link-color;
+    @undeline-height:1px;
+    @undeline-transition-duration-in:all .3s;
+    @undeline-transition-duration-out:all .3s;
+
+) {
+
+    color: @link-color;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    .lh-transition(@undeline-transition-duration-out);
+
+    &:after {
+        content: '';
+        width: 0;
+        background: @link-hover-color;
+        height: @undeline-height;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        .lh-transition(@undeline-transition-duration-out);
+    }
+
+    &:hover,
+    &:focus,
+    &.active {
+        color: @link-color-hover;
+        .lh-transition(@undeline-transition-duration-in);
+        &:after {
+            width: 100%;
+            left: 0;
+            .lh-transition(@undeline-transition-duration-in);
+        }
+    }
+
+}
+
+
+.bottom-line-animation (
+    @link-color:white;
+    @link-color-hover:@link-color;
+    @bottom-line-color:white;
+    @bottomline-transition-duration-in:all .3s;
+    @bottom-line-transition-duration-out:all 0.5s;
+    @bottom-line-height:4px;
+) {
+    color: @bottom-line-color;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    .lh-transition(@bottom-line-transition-duration-out);
+
+    &:after {
+        content: '';
+        width: 100%;
+        //        background: rgba(red(@bottom-line-color) green(@bottom-line-color),blue(@bottom-line-color), .4);
+        background: @bottom-line-color;
+        height: @bottom-line-height;
+        position: absolute;
+        bottom: -@bottom-line-height;
+        left: 0;
+
+        //        .lh-border-radius(2px);
+        .lh-transition(@bottom-line-transition-duration-out);
+    }
+
+    &:hover,
+    &:focus,
+    &.active {
+        color: @bottom-line-color;
+        .lh-transition(@bottomline-transition-duration-in);
+
+        &:after {
+            .lh-transition(@bottomline-transition-duration-in);
+            bottom: 0;
+        }
+    }
+
+}
+
+.no-bottom-line-animation (@bottom-line-height:-10px;) {
+    &:hover,
+    &:focus,
+    &.active {
+        &:after {
+            bottom: @bottom-line-height;
+        }
+
+    }
+}
+
+
