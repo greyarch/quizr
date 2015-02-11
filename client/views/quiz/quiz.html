@@ -2,8 +2,7 @@
   <div id="overlay"></div>
   {{#with quiz}}
   <div id="quiz-content" class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-sm-8 col-center">
     {{#unless showResultsPage}}
       {{#if showStartPage}}
         {{> startPage}}
@@ -16,16 +15,18 @@
       {{> results}}
     {{/unless}}
     </div>
-    <div class="col-md-3"></div>
   </div>
   {{/with}}
 </template>
 
+
 <template name="question">
   <div id="{{ord}}" class="question" {{show}}>
-    <h1>{{ord}}. {{question}}</h1>
-    <img src={{image}} style="width:100%" class="img-responsive" alt="Image for question {{ord}}">
-    <br>
+    <h1 class="no-padding">{{ord}}. {{question}}</h1>
+    <div id="image-question" class="clearfix">
+      <img src={{image}} class="img-fill" alt="Image for question {{ord}}">
+    </div>
+
     {{#each answers}}
     <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
     {{/each}}

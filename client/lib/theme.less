@@ -2,16 +2,16 @@
 //
 // Load core variables and mixins
 // --------------------------------------------------
-@import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700,300");
 
 //Bootsrap Includes
-@import "variables.import.less";
+@import "custom.bootstrap.import.less";
 
 @import "lesshat-prefixed.import.less";
 
 @import "project-mixins.import.less";
 @import "layout-sections.import.less";
 
+@import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700,300");
 
 :focus {outline:none !important;}
 ::-moz-focus-inner {border:0 !important;}
@@ -86,15 +86,6 @@
     margin: 0 auto;
 }
 
-.animated-collapse {
-    overflow: hidden;
-    .lh-transition(all .4s);
-    max-height: 2000px;
-
-    &.collapse-text {
-        max-height: 0;
-    }
-}
 #follow-us {
     .spread-evently();
 }
@@ -160,12 +151,17 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
+#image-question {
+    margin-bottom: 15px;
+}
 
 .question {
   background: white;
+    color: darken(@gray,20%);
   padding: 15px 15px;
-  margin-top: 50px;
+
   .lh-border-radius(5px);
+
   h1 {
     margin: 0 0 25px;
     padding: 0;
@@ -185,4 +181,26 @@
 
 h1.pg-loading-logo-header {
   display: none
+}
+
+#main-container {
+    padding-top: 50px;
+}
+.description {
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+a.big-link {
+    font-size: 30px;
+    text-decoration: none;
+}
+
+.underline-center {
+    text-decoration: none;
+    .center-underline (@link-color:@link-color);
+}
+
+.page-header {
+    border-bottom: 1px solid @text-color;
 }

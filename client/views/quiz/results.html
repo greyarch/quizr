@@ -1,17 +1,16 @@
 <template name="results">
-  <div class="row white-text">
-    <h1>Отговорихте правилно на {{result}}% от въпросите.</h1>
-    <h1>{{resultText}}</h1>
-  </div>
-  <div class="row white-text">
-    <h2>Споделете този резултат!</h2>
-  </div>
-  <div class="row">
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{url}}">
-      <h2><i class="fa fa-facebook-square fa-3"></i> Сподели във Facebook</h2>
-    </a>
-  </div>
-  <div class="row">
-    <a href="/">Към началото</a>
-  </div>
+
+    <div class="">
+        <h1>Отговорихте правилно на {{result}}% от въпросите.</h1>
+
+        <p class="description">{{resultText}}</p>
+
+        <p>
+            <a class="underline-center" style="vertical-align: text-bottom" href="/"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Назад към куизовете</a>
+            <a class="big-link pull-right underline-center" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">
+                <i class="fa fa-facebook-square fa-3"></i> Сподели във Facebook
+            </a>
+        </p>
+
+    </div>
 </template>
