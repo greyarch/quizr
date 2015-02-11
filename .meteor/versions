@@ -68,7 +68,6 @@ reactive-dict@1.0.5
 reactive-var@1.0.4
 reload@1.1.2
 retry@1.0.2
-reywood:publish-composite@1.3.5
 routepolicy@1.0.4
 schnie:uploader@2.0.3
 service-configuration@1.0.3
@@ -86,4 +85,4 @@ underscore@1.0.2
 url@1.0.3
 webapp@1.1.6
 webapp-hashing@1.0.2
-yogiben:admin@1.1.0
+yogiben:admin@1.0.9

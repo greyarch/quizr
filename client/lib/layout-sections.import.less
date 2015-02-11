@@ -6,9 +6,15 @@
  * @license         http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2 only
  */
 
- @import "variables.import.less";
- @import "lesshat-prefixed.import.less";
- @import url("http://fonts.googleapis.com/css?family=Comfortaa:400,700,300");
+
+//Hide placeholders on focus
+input,
+textarea {
+    &:focus::-webkit-input-placeholder { color:transparent; }
+    &:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+    &:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+    &:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+}
 
 //Layout section Definitions
 .layout-section {
@@ -17,6 +23,7 @@
     border-style: solid;
     border-width: 1px 0 0;
     border-color: @gray-lighter;
+    color: @gray-dark;
 
     & .section-header {
         text-align: center;
