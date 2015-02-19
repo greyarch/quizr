@@ -68,3 +68,69 @@ textarea {
         color: @brand-primary;
     }
 }
+
+.dark-gray {
+
+    @section-txt-color: darken(@white, 50%);
+    @section-background-color: darken(@gray, 30%);
+
+    background-color: @section-background-color;
+    border-color: darken(@section-background-color, 10%);
+    color: @section-txt-color;
+
+
+    .section-header {
+        color: lighten(@section-txt-color, 25%);
+    }
+
+    & .section-subheader {
+        color: lighten(@section-txt-color, 15%);
+    }
+
+    .btn-outline-light {
+        color: @section-txt-color;
+        border-color: @section-txt-color;
+        &:hover,
+        &:focus {
+            color: @section-background-color;
+            border-color: lighten(@section-txt-color, 20%);
+            background: lighten(@section-txt-color, 20%);
+        }
+    }
+
+    .form-control,
+    input {
+        background: darken(@section-txt-color,10%);
+        color:lighten(@section-txt-color, 30%);
+        border-color: @section-txt-color;
+        .placeholder(lighten(@section-txt-color, 10%));
+
+
+        &:focus {
+            color: darken(@section-background-color,10%);
+            .placeholder(lighten(@section-background-color,20%));
+            border-color: lighten(@section-txt-color, 20%);
+            background: lighten(@section-txt-color, 20%)
+        }
+    }
+
+    // Feedback states
+    @darken-weight: 20%;
+    .has-success {
+        .form-control-validation(darken(@brand-success,@darken-weight); darken(@brand-success,@darken-weight); darken(@brand-success,@darken-weight));
+    }
+
+    .has-warning {
+        .form-control-validation(darken(@brand-warning,@darken-weight); darken(@brand-warning,@darken-weight); darken(@brand-warning,@darken-weight));
+    }
+
+    .has-error {
+        .form-control-validation(darken(@brand-danger,@darken-weight); darken(@brand-danger,@darken-weight); darken(@brand-danger,@darken-weight));
+    }
+
+    // Reposition feedback icon if label is hidden with "screenreader only" state
+    .has-feedback label.sr-only ~ .form-control-feedback {
+        top: 0;
+    }
+}
+
