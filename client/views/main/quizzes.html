@@ -1,30 +1,30 @@
 <template name="quizzes">
-  <div class="navbar navbar-inverse navbar-main navbar-fixed-top">
-    <div class="container">
+    <div class="navbar navbar-inverse navbar-main navbar-fixed-top">
+        <div class="container">
 
-        <div class="navbar-header">
-            <a href="index.html" class="navbar-brand">Quizzer</a>
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+            <div class="navbar-header">
+                <a href="index.html" class="navbar-brand">Quizzer</a>
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
-        <div class="navbar-collapse collapse" id="navbar-main">
+            <div class="navbar-collapse collapse" id="navbar-main">
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="ui-test.html" class="bottom-line">Куизове</a></li>
-                <li><a href="ui-test.html" class="bottom-line">Контакт</a></li>
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="ui-test.html" class="bottom-line">Куизове</a></li>
+                    <li><a href="ui-test.html" class="bottom-line">Контакт</a></li>
+                </ul>
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<section id="quizzes" class="layout-section">
-    <div class="container">
+    <section id="quizzes" class="layout-section">
+      <div class="container">
         <h2 class="section-header">Изберете Тест</h2>
         <h5 class="section-subheader">Проверете колко знаете по определена тема</h5>
 
@@ -39,34 +39,34 @@
               </div>
           </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
 
-<footer id="footer" class="inverse layout-section thiner">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3 text-justify">
-                <h3 class="text-center">За нас</h3>
+    <footer id="footer" class="inverse layout-section thiner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 text-justify">
+                    <h3 class="text-center">За нас</h3>
 
-                <p data-lorem="4s"></p>
+                    <p data-lorem="4s"></p>
 
-                <p>
-                    <button type="button" class="btn btn-outline-light btn-block">Научи повече за quizzer.bg</button>
-                </p>
-            </div>
+                    <p>
+                        <button type="button" class="btn btn-outline-light btn-block">Научи повече за quizzer.bg</button>
+                    </p>
+                </div>
 
-            <div class="col-sm-6 text-justify">
-                <h3 class="text-center">Пишете ни</h3>
+                <div class="col-sm-6 text-justify">
+                    <h3 class="text-center">Пишете ни</h3>
 
-                <form id="send-message" method="post" role="form"
-                      data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
-                      data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
-                      data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
-                        >
+                    <form id="send-message" method="post" role="form"
+                          data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                          data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                          data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                            >
 
-                    <div class="form-group">
-                        <label class="sr-only" for="message">Напишете ни нещо</label>
+                        <div class="form-group">
+                            <label class="sr-only" for="message">Напишете ни нещо</label>
                         <textarea
                                 id="message"
                                 name="message"
@@ -78,44 +78,44 @@
                                 data-bv-stringlength-min="10"
                                 data-bv-stringlength-message="Моля въведете най-малко 10 знака"
                                 ></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="msgemail">Оставете ни имейл за контакт</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="msgemail">Оставете ни имейл за контакт</label>
 
-                        <div class="form-tip form-tip-top"></div>
-                        <input type="email"
-                               class="form-control"
-                               name="msgemail"
-                               id="msgemail"
-                               placeholder="Оставете ни имейл за контакт"
-                               data-bv-notempty="true"
-                               data-bv-notempty-message="Моля въведете имейл"
-                               data-bv-emailaddress="true"
-                               data-bv-emailaddress-message="Въведения имейл е невалиден"
-                                >
+                            <div class="form-tip form-tip-top"></div>
+                            <input type="email"
+                                   class="form-control"
+                                   name="msgemail"
+                                   id="msgemail"
+                                   placeholder="Оставете ни имейл за контакт"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Моля въведете имейл"
+                                   data-bv-emailaddress="true"
+                                   data-bv-emailaddress-message="Въведения имейл е невалиден"
+                                    >
 
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-outline-light">Изпрати</button>
-                    </div>
-                </form>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-light">Изпрати</button>
+                        </div>
+                    </form>
 
-            </div>
+                </div>
 
-            <div class="col-sm-3">
-                <h3 class="text-center">Следвайте ни</h3>
+                <div class="col-sm-3">
+                    <h3 class="text-center">Следвайте ни</h3>
 
-                <p id="follow-us" class="text-justify">
-                    <a class="twitter" href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
-                    <a class="facebook" href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
-                    <a class="google" href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
-                    <span class="stretch"></span>
-                </p>
+                    <p id="follow-us" class="text-justify">
+                        <a class="twitter" href="#"><i class="fa fa-twitter-square fa-4x"></i></a>
+                        <a class="facebook" href="#"><i class="fa fa-facebook-square fa-4x"></i></a>
+                        <a class="google" href="#"><i class="fa fa-google-plus-square fa-4x"></i></a>
+                        <span class="stretch"></span>
+                    </p>
 
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<div id="copyright" class="text-center dark-gray"><span class="small">Copyright © 2015 Quizzer. All Rights Reserved.</span></div>
+    <div id="copyright" class="text-center dark-gray"><span class="small">Copyright © 2015 Quizzer. All Rights Reserved.</span></div>
 </template>
