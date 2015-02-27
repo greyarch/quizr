@@ -1,10 +1,17 @@
 <template name="startPage">
-    <div id="start-page" class="white-text">
-        <h1 class="page-header">{{name}}</h1>
-        <p class="description">{{description}}</p>
+  <div id="overlay"></div>
+  {{#with quiz}}
+  <div id="quiz-content" class="row">
+    <div class="col-sm-8 col-center">
+      <div id="start-page" class="white-text">
+          <h1 class="page-header">{{name}}</h1>
+          <p class="description">{{description}}</p>
 
-        <p class="text-center">
-            <button id="startButton" type="button" class="btn btn-outline-light btn-lg">Старт</button>
-        </p>
+          <p class="text-center">
+              <button id="startButton" type="button" class="btn btn-outline-light btn-lg">Старт</button>
+          </p>
+      </div>
     </div>
+  </div>
+  {{/with}}
 </template>

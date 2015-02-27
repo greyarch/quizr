@@ -3,32 +3,19 @@
   {{#with quiz}}
   <div id="quiz-content" class="row">
     <div class="col-sm-8 col-center">
-    {{#unless showResultsPage}}
-      {{#if showStartPage}}
-        {{> startPage}}
-      {{else}}
-        {{#each questions}}
-        {{> question}}
-        {{/each}}
-      {{/if}}
-    {{else}}
-      {{> results}}
-    {{/unless}}
+      {{#each questions}}
+        <div id="{{ord}}" class="question" {{show}}>
+          <h1 class="no-padding">{{ord}}. {{question}}</h1>
+          <div id="image-question" class="clearfix">
+            <img src={{image}} class="img-fill" alt="Image for question {{ord}}">
+          </div>
+
+          {{#each answers}}
+          <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
+          {{/each}}
+        </div>
+      {{/each}}
     </div>
   </div>
   {{/with}}
-</template>
-
-
-<template name="question">
-  <div id="{{ord}}" class="question" {{show}}>
-    <h1 class="no-padding">{{ord}}. {{question}}</h1>
-    <div id="image-question" class="clearfix">
-      <img src={{image}} class="img-fill" alt="Image for question {{ord}}">
-    </div>
-
-    {{#each answers}}
-    <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
-    {{/each}}
-  </div>
 </template>

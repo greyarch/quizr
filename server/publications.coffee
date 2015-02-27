@@ -6,3 +6,4 @@ Meteor.publish 'quizzes', ->
     Quizzes.find published: true
 
 Meteor.publish 'quiz', (slug) -> Quizzes.find slug: slug
+Meteor.publish 'session', (id) -> Sessions.find _id: id

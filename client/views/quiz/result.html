@@ -1,13 +1,4 @@
-<template name="results">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&appId=1388848514756226&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
+<template name="result">
     <div class="">
         <h1>Отговорихте правилно на {{result}}% от въпросите.</h1>
 
@@ -17,10 +8,6 @@
             <a class="underline-center" style="vertical-align: text-bottom" href="/"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Искам да видя всички куизове</a>
             <br>
             <a class="underline-center" style="vertical-align: text-bottom" href="/q/{{slug}}"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Искам да направя този куиз отново</a>
-            <!-- <a class="big-link pull-right underline-center" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">
-                <i class="fa fa-facebook-square fa-3"></i> Сподели във Facebook
-            </a> -->
-
             {{> shareit shareData}}
         </p>
 

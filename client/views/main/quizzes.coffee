@@ -1,3 +1,6 @@
+Template.quizzes.created = ->
+    $('body').css 'background-image', '' # a bit hacky way to reset the background
+
 Template.quizzes.helpers
   quizzes: -> Quizzes.find()
 
