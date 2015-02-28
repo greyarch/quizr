@@ -40,6 +40,7 @@ iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
 joshowens:accounts-entry@1.0.3
+joshowens:shareit@0.3.1
 joshowens:simple-form@0.2.2
 jquery@1.11.3
 json@1.0.2
@@ -48,7 +49,6 @@ less@1.0.12
 livedata@1.0.12
 localstorage@1.0.2
 logging@1.0.6
-lovetostrike:shareit@0.4.1
 meteor@1.1.4
 meteor-platform@1.2.1
 minifiers@1.1.3

@@ -1,15 +1,23 @@
 <template name="result">
-    <div class="">
-        <h1>Отговорихте правилно на {{result}}% от въпросите.</h1>
+    <div id="overlay"></div>
+    <div class="col-sm-8 col-center photobg-text">
+      {{#with session}}
+        <h1>Отговорихте правилно на {{result.percentage}}% от въпросите.</h1>
 
-        <p class="description">{{resultText}}</p>
-
+        <p class="description">
+          {{result.text}}
+          <br>
+          <br>
+          Споделете този резултат с приятелите си!
+          <br>
+          {{> shareit shareData}}
+          <br>
+        </p>
         <p>
             <a class="underline-center" style="vertical-align: text-bottom" href="/"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Искам да видя всички куизове</a>
             <br>
             <a class="underline-center" style="vertical-align: text-bottom" href="/q/{{slug}}"><i class="fa fa-chevron-left"></i>&nbsp;&nbsp;Искам да направя този куиз отново</a>
-            {{> shareit shareData}}
         </p>
-
+      {{/with}}
     </div>
 </template>

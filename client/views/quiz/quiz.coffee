@@ -1,21 +1,27 @@
 Template.quiz.created = ->
-  @currentQuestion = 1
-  @sess = Sessions.findOne _id: @data.sessId
-  $('body').css('background-image', "url(#{@sess.quiz?.image})") # a bit hacky way to set the background
-  $('body').css('background-size', 'cover')
+  Meteor.subscribe 'session', @data.sessId, =>
+    @autorun =>
+      sess = Sessions.findOne()
+      if sess && sess.result.currentQuestion > sess.quiz.questions.length
+        Router.go 'result', sessId: sess._id
+    $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
+    $('body').css('background-size', 'cover')
 
 Template.quiz.helpers
-  quiz: -> Template.instance().sess.quiz
-  show: -> 'hidden' unless Template.instance().currentQuestion == @ord
+  quiz: -> Sessions.findOne().quiz
+  show: ->
+    sess = Sessions.findOne()
+    'hidden' unless sess.result.currentQuestion == @ord
 
 Template.quiz.events
   'click button': (e, t) ->
-    currData = Template.currentData()
-    t.sess.result.responses.push _.extend(currData, @)
-    if @correct then t.sess.result.correctCount += 1
-    Sessions.update {_id: t.sess._id}, t.sess
+    sess = Sessions.findOne()
+    if @correct then sess.result.correctCount += 1
+    sess.result.responses.push
+      qord: sess.result.currentQuestion
+      answer: @
+    res = sess.result.percentage = Math.round(100 * sess.result.correctCount / sess.result.currentQuestion)
+    sess.result.text = _.find(sess?.quiz.results, (result) -> result?.bottom <= res <= result?.top)?.text
+    sess.result.currentQuestion += 1
 
-    if t.sess.quiz.questions.length == t.currentQuestion
-      Router.go 'result', sessId: t.sess._id
-    else
-      t.currentQuestion += 1
+    Meteor.call 'updateSession', sess

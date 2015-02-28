@@ -3,7 +3,7 @@
   {{#with quiz}}
   <div id="quiz-content" class="row">
     <div class="col-sm-8 col-center">
-      <div id="start-page" class="white-text">
+      <div id="start-page" class="photobg-text">
           <h1 class="page-header">{{name}}</h1>
           <p class="description">{{description}}</p>
 
@@ -14,4 +14,9 @@
     </div>
   </div>
   {{/with}}
+  <div id="fb" style="display:none;">
+    {{#with session}}
+    {{> shareit shareData}}
+    {{/with}}
+  </div>
 </template>

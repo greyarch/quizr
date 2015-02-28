@@ -1,0 +1,2 @@
+ShareIt.configure
+  iconOnly: true

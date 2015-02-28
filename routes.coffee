@@ -18,12 +18,15 @@ Meteor.startup ->
         Meteor.subscribe 'session', @params.sessId
       data: -> {sessId : @params.sessId}
     @route 'start',
-      path: '/start/:quiz'
+      path: '/start/:quiz/:sessId?'
       template: 'startPage'
       waitOn: ->
-        Meteor.subscribe 'quiz', @params.quiz
+        [Meteor.subscribe('quiz', @params.quiz), Meteor.subscribe('session', @params.sessId)]
       data: -> {'quiz' : @params.quiz}
     @route 'result',
       path: '/result/:sessId'
       template: 'result'
-      data: -> sessId : @params.sessId
+      data: ->
+        sessId : @params.sessId
+      waitOn: ->
+        Meteor.subscribe 'session', @params.sessId

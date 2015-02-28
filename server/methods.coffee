@@ -12,3 +12,5 @@ Meteor.methods
       from: from,
       subject: "Message from the website!",
       text: text
+
+  updateSession: (doc) -> Sessions.update {_id: doc._id}, doc
