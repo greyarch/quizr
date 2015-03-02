@@ -1,11 +1,10 @@
 Template.quiz.created = ->
-  Meteor.subscribe 'session', @data.sessId, =>
-    @autorun =>
-      sess = Sessions.findOne()
-      if sess && sess.result.currentQuestion > sess.quiz.questions.length
-        Router.go 'result', sessId: sess._id
-    $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
-    $('body').css('background-size', 'cover')
+  @autorun =>
+    sess = Sessions.findOne()
+    if sess && sess.result.currentQuestion > sess.quiz.questions.length
+      Router.go 'result', sessId: sess._id
+  $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
+  $('body').css('background-size', 'cover')
 
 Template.quiz.helpers
   quiz: -> Sessions.findOne().quiz
