@@ -1,6 +1,6 @@
 Template.startPage.helpers
   quiz: ->
-    quiz = Quizzes.findOne(slug: @quiz)
+    quiz = Quizzes.findOne()
     $('body').css('background-image', "url(#{quiz?.image})") # a bit hacky way to set the background
     $('body').css('background-size', 'cover')
     quiz
@@ -19,5 +19,12 @@ Template.startPage.destroyed = ->
 
 Template.startPage.events
   'click #startButton': (e, t) ->
-    Sessions.insert _.extend({quiz: @}, {result: {currentQuestion: 1, correctCount: 0, responses: []}}), (err, id) ->
+    Sessions.insert
+      quiz: @
+      result:
+        currentQuestion: 1
+        correctCount: 0
+        responses: []
+    , (err, id) ->
+      console.log err, id
       Router.go 'quiz', sessId: id

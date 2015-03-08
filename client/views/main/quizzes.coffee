@@ -1,5 +1,10 @@
 Template.quizzes.created = ->
-    $('body').css 'background-image', '' # a bit hacky way to reset the background
+  $('body').css 'background-image', '' # a bit hacky way to reset the background
+
+Template.quizzes.rendered = ->
+  $('.quiz').bigtext
+    maxfontsize: 60
+    minfontsize: 16
 
 Template.quizzes.helpers
   quizzes: -> Quizzes.find()

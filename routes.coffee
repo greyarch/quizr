@@ -18,19 +18,14 @@ Meteor.startup ->
       fastRender: true
       waitOn: ->
         Meteor.subscribe 'session', @params.sessId
-      data: -> {sessId : @params.sessId}
     @route 'start',
       path: '/start/:quiz/:sessId?'
       template: 'startPage'
       fastRender: true
       waitOn: ->
         [Meteor.subscribe('quiz', @params.quiz), Meteor.subscribe('session', @params.sessId)]
-      data: -> {'quiz' : @params.quiz}
     @route 'result',
       path: '/result/:sessId'
       template: 'result'
-      fastRender: true
-      data: ->
-        sessId : @params.sessId
       waitOn: ->
         Meteor.subscribe 'session', @params.sessId
