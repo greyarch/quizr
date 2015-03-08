@@ -1,8 +1,4 @@
 Template.quiz.created = ->
-  @autorun =>
-    sess = Sessions.findOne()
-    if sess && sess.result.currentQuestion > sess.quiz.questions.length
-      Router.go 'result', sessId: sess._id
   $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
   $('body').css('background-size', 'cover')
 
@@ -10,7 +6,10 @@ Template.quiz.helpers
   quiz: -> Sessions.findOne().quiz
   show: ->
     sess = Sessions.findOne()
-    'hidden' unless sess.result.currentQuestion == @ord
+    if sess && sess.result.currentQuestion > sess.quiz.questions.length
+      Router.go 'result', sessId: sess._id
+    else
+      'hidden' unless sess.result.currentQuestion == @ord
 
 Template.quiz.events
   'click button': (e, t) ->
