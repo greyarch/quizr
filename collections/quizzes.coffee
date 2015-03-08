@@ -58,6 +58,11 @@ Meteor.startup ->
       label: 'Линк към картинка'
       optional: true
       regEx: SimpleSchema.RegEx.Url
+    shareImage:
+      type: String
+      label: 'Линк към картинка за споделяне (Facebook, etc.)'
+      optional: true
+      regEx: SimpleSchema.RegEx.Url
     results:
       type: [ResultRangeSchema]
       label: 'Интервал'

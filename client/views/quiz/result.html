@@ -10,7 +10,7 @@
           <br>
           Споделете този резултат с приятелите си!
           <br>
-          {{> shareit shareData}}
+          {{> share}}
           <br>
         </p>
         <p>
@@ -20,4 +20,8 @@
         </p>
       {{/with}}
     </div>
+</template>
+
+<template name='share'>
+  {{> shareit shareData}}
 </template>

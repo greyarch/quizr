@@ -11,5 +11,5 @@ Template.loading.destroyed = ->
   if @loading then @loading.finish()
 
 
-message = '<p class="loading-message">Куизовете се зареждат</p>'
+message = '<p class="loading-message">ЗАРЕЖДА СЕ...</p>'
 spinner = '<div class="sk-spinner sk-spinner-rotating-plane"></div>'

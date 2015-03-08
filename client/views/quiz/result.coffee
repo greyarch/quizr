@@ -1,10 +1,10 @@
 Template.result.helpers
   session: -> Sessions.findOne()
 
+Template.share.helpers
   shareData: ->
     title: @result?.text
     author: -> window.location.origin
-    summary:
-      "Аз постигнах #{@result?.percentage}% на '#{@quiz?.name}'! Ти как ще се справиш?"
+    summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а ти?"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
-    thumbnail: => @quiz.image
+    thumbnail: => @quiz.shareImage || @quiz.image

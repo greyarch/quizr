@@ -6,14 +6,13 @@ Template.startPage.helpers
     quiz
 
   session: -> Sessions.findOne()
-
-  shareData: ->
-    title: @result?.text
-    author: -> window.location.origin
-    summary:
-      "Аз постигнах #{@result?.percentage}% на #{@quiz?.name}! Ти как ще се справиш?"
-    url: "#{window.location.origin}/result/#{@_id}"
-    thumbnail: => @quiz.image
+  # 
+  # shareData: ->
+  #   title: @result?.text
+  #   author: -> window.location.origin
+  #   summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а ти?"
+  #   url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
+  #   thumbnail: => @quiz.shareImage || @quiz.image
 
 Template.startPage.destroyed = ->
     $('body').css 'background-image', '' # a bit hacky way to reset the background
