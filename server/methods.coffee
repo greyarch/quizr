@@ -14,3 +14,12 @@ Meteor.methods
       text: text
 
   updateSession: (doc) -> Sessions.update {_id: doc._id}, doc
+
+  createSession: (quiz) ->
+    quiz = Quizzes.findOne slug: quiz
+    Sessions.insert
+      quiz: quiz
+      result:
+        currentQuestion: 1
+        correctCount: 0
+        responses: []
