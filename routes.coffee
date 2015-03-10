@@ -1,3 +1,11 @@
+resultFields =
+  fields:
+    "result.percentage": 1
+    "result.text": 1
+    "quiz.slug": 1
+    "quiz.shareImage": 1
+    "quiz.image": 1
+
 Meteor.startup ->
 
   Router.configure
@@ -21,9 +29,9 @@ Meteor.startup ->
       template: 'startPage'
       waitOn: ->
         [Meteor.subscribe('quiz', @params.quiz, {name: 1, image: 1, description: 1, slug: 1}),
-        Meteor.subscribe('session', @params.sessId)]
+        Meteor.subscribe('session', @params.sessId, resultFields)]
     @route 'result',
       path: '/result/:sessId'
       template: 'result'
       waitOn: ->
-        Meteor.subscribe 'session', @params.sessId
+        Meteor.subscribe 'session', @params.sessId, resultFields

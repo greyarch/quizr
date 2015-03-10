@@ -11,4 +11,4 @@ Meteor.publish 'quiz', (slug, fields) ->
     Quizzes.find {slug: slug}, {fields: fields}
   else
     Quizzes.find slug: slug
-Meteor.publish 'session', (id) -> Sessions.find _id: id
+Meteor.publish 'session', (id, fields) -> Sessions.find {_id: id}, fields || {}
