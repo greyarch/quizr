@@ -13,7 +13,8 @@ Meteor.methods
       subject: "Message from the website!",
       text: text
 
-  updateSession: (doc) -> Sessions.update {_id: doc._id}, doc
+  updateSession: (doc) ->
+    Sessions.update {_id: doc._id}, $set: _.omit(doc, '_id')
 
   createSession: (quiz) ->
     quiz = Quizzes.findOne slug: quiz
