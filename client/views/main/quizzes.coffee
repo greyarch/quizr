@@ -8,6 +8,7 @@ Template.quizzes.rendered = ->
 
 Template.quizzes.helpers
   quizzes: -> Quizzes.find()
+  featuredQuizzes: -> Quizzes.find featured: true
 
 Template.quizzes.events
   'submit form#send-message': (e, t) ->

@@ -18,7 +18,18 @@
             <div class="navbar-collapse collapse" id="navbar-main">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#quizzes" class="bottom-line">Куизове</a></li>
+                    <li role="presentation" class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                        role="button" aria-expanded="false">
+                        Куизове
+                        <span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        {{#each quizzes}}
+                        <li><a href="{{pathFor 'start' quiz=slug}}">{{name}}</a></li>
+                        {{/each}}
+                      </ul>
+                    </li>
                     <li><a href="#contact" class="bottom-line">Контакт</a></li>
                 </ul>
 
@@ -33,7 +44,7 @@
         <div class="row">
           <div class="col-center col-sm-12">
               <div class="quiz-list">
-                {{#each quizzes}}
+                {{#each featuredQuizzes}}
                   <a href="{{pathFor 'start' quiz=slug}}" class="quiz" style="background: url({{image}}) no-repeat 80% 35%">
                       <h2>{{name}}</h2>
                   </a>

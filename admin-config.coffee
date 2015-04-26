@@ -24,3 +24,5 @@
       auxCollections: ['Sessions']
   dashboard:
       homeUrl: '/'
+
+AdminDashboard.addSidebarItem 'Featured quizzes', AdminDashboard.path('/featured'), icon: 'thumbs-up'

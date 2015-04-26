@@ -70,3 +70,7 @@ Meteor.startup ->
     questions:
       type: [QuestionSchema]
       label: 'Въпрос'
+    featured:
+      optional: true
+      type: Boolean
+      label: "Препоръчан куиз"

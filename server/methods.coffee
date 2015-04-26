@@ -24,3 +24,6 @@ Meteor.methods
         currentQuestion: 1
         correctCount: 0
         responses: []
+
+  setFeatured: (id, featured) ->
+    Quizzes.update {_id: id}, $set: featured: featured
