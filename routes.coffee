@@ -41,5 +41,6 @@ Meteor.startup ->
     @route 'adminFeaturedQuizzes',
       path: '/admin/featured'
       template: 'featuredQuizzes'
+      layoutTemplate: 'AdminLayout'
       waitOn: ->
         Meteor.subscribe 'quizzes for featuring'
