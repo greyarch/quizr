@@ -1,21 +1,26 @@
 <template name="quiz">
-  <div id="overlay"></div>
+  <div id="overlay" style="z-index:-1"></div>
   {{#with quiz}}
-  <div id="quiz-content" class="row">
-    <div class="col-sm-8 col-center">
+  <div  id="quiz-content" class="container question">
       {{#each questions}}
-        <div id="{{ord}}" class="question" {{show}}>
-          <h1 class="no-padding">{{ord}}. {{question}}</h1>
-          <div id="image-question" class="clearfix">
-            <img src={{image}} class="img-fill" alt="Image for question {{ord}}">
+      <div class="row" id="{{ord}}" {{show}}>
+        <div class="col-md-12">
+          <div class="question-header">
+            <span>{{ord}}. {{question}}</span>
           </div>
-
+        </div>
+        <div class="col-md-8">
+            <div id="image-question" class="clearfix">
+              <img src={{image}} class="img-fill" alt="Image for question {{ord}}">
+            </div>
+        </div>
+        <div class="col-md-4">
           {{#each answers}}
-          <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
+            <button type="button" class="btn btn-default btn-lg btn-block">{{text}}</button>
           {{/each}}
         </div>
+      </div>
       {{/each}}
-    </div>
   </div>
   {{/with}}
 </template>

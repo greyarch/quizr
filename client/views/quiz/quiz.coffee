@@ -2,6 +2,11 @@ Template.quiz.created = ->
   $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
   $('body').css('background-size', 'cover')
 
+Template.quiz.rendered = ->
+  $('.question-header').bigtext
+    maxfontsize: 60
+    minfontsize: 14
+
 Template.quiz.helpers
   quiz: -> Sessions.findOne().quiz
   show: ->

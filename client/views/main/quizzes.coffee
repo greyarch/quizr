@@ -3,8 +3,8 @@ Template.quizzes.created = ->
 
 Template.quizzes.rendered = ->
   $('.quiz').bigtext
-    maxfontsize: 60
-    minfontsize: 16
+    maxfontsize: 24
+    minfontsize: 14
 
 Template.quizzes.helpers
   quizzes: -> Quizzes.find()
