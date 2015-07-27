@@ -2,10 +2,8 @@ Template.quiz.created = ->
   $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
   $('body').css('background-size', 'cover')
 
-Template.quiz.rendered = ->
-  $('.question-header').bigtext
-    maxfontsize: 60
-    minfontsize: 14
+Template.quiz.onRendered ->
+  initBigtext()
 
 Template.quiz.helpers
   quiz: -> Sessions.findOne().quiz
@@ -27,4 +25,11 @@ Template.quiz.events
     sess.result.text = _.find(sess?.quiz.results, (result) -> result?.bottom <= res <= result?.top)?.text
     sess.result.currentQuestion += 1
 
-    Meteor.call 'updateSession', sess
+    Meteor.call 'updateSession', sess, ->
+      Meteor.defer initBigtext
+
+
+initBigtext = ->
+  $('.question-header').bigtext
+    maxfontsize: 60
+    minfontsize: 14
