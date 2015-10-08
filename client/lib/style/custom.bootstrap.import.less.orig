@@ -200,11 +200,6 @@
 @btn-action-bg-hover:       @btn-action-bg-active;
 @btn-action-bd-color-hover: @btn-action-bd-color-active;
 
-// Allows for customizing button radius independently from global border radius
-@btn-border-radius-base:         @border-radius-base;
-@btn-border-radius-large:        @border-radius-large;
-@btn-border-radius-small:        @border-radius-small;
-
 
 
 //OUTLINE LIGHT BUTTON
@@ -445,7 +440,7 @@
 @navbar-default-toggle-border-color:       darken(@navbar-default-bg, 10%);
 
 
-//=== Inverted navbar
+// Inverted navbar
 // Reset inverted navbar basics
 @navbar-inverse-color:                      #939393;
 @navbar-inverse-bg:                         @gray-dark; //#272727;

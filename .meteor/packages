@@ -14,10 +14,10 @@ joshowens:accounts-entry
 aldeed:simple-schema
 gadicohen:phantomjs
 pcel:loading
-nemo64:bootstrap
 email
 yogiben:admin
 iron:router
 msavin:mongol
 joshowens:shareit
 dburles:collection-helpers
+nemo64:bootstrap
