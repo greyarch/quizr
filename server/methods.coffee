@@ -16,6 +16,11 @@ Meteor.methods
   updateSession: (doc) ->
     Sessions.update {_id: doc._id}, $set: _.omit(doc, '_id')
 
+  saveShared: (sessId, destination) ->
+    Sessions.update {_id: sessId},
+      $addToSet:
+        "result.shared": destination
+
   createSession: (quiz) ->
     quiz = Quizzes.findOne slug: quiz
     Sessions.insert
