@@ -8,8 +8,8 @@ Template.share.helpers
     summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
     thumbnail: ->
-      quiz = Template.parentData().quiz
-      quiz.shareImage || quiz.image
+      quiz = @?.quiz or Template.parentData()?.quiz
+      quiz?.shareImage or quiz?.image
 
 Template.share.events
   'click a.fb-share': -> Meteor.call 'saveShared', Template.currentData()._id, 'facebook'
