@@ -26,6 +26,7 @@ fastclick@1.0.3
 fortawesome:fontawesome@4.3.0
 gadicohen:phantomjs@0.0.2
 geojson-utils@1.0.3
+gwendall:body-events@0.1.6
 gwendall:session-json@0.1.7
 handlebars@1.0.3
 html-tools@1.0.4
