@@ -10,7 +10,7 @@
 
   "setupMongo": true,
   "appName": "quizzer",
-  "app": "~/workspace/quizr",
+  "app": "~/workspace/meteor-projects/quizr",
   "env": {
     "PORT": 80,
     "ROOT_URL": "http://quizzer.bg"

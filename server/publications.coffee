@@ -15,3 +15,6 @@ Meteor.publish 'session', (id, fields) -> Sessions.find {_id: id}, fields || {}
 
 Meteor.publish 'quizzes for featuring', ->
     Quizzes.find {}, {fields: {name: 1, featured: 1}}
+
+Meteor.publish 'session results', ->
+    Sessions.find {}, {fields: {"quiz.slug": 1, "quiz.name": 1, result: 1}}

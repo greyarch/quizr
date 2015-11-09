@@ -36,8 +36,14 @@ Meteor.startup ->
       waitOn: ->
         Meteor.subscribe 'session', @params.sessId, resultFields
 
-    # admin routes
+    # report routes
+    @route 'reportStatistics',
+      path: '/reports/statistics'
+      template: 'statistics'
+      waitOn: ->
+        [Meteor.subscribe('session results'), Meteor.subscribe('quizzes')]
 
+    # admin routes
     @route 'adminFeaturedQuizzes',
       path: '/admin/featured'
       template: 'featuredQuizzes'

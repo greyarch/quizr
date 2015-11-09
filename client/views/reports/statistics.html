@@ -1,0 +1,29 @@
+<template name="statistics">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      {{#if showReport}}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Име на куиза</th>
+            <th>Започнат, пъти</th>
+            <th>Споделен, пъти </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each quizzes}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{totalSessions}}</td>
+            <td>{{sharedSessions}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}
+      Authorization is required!
+      {{/if}}
+    </div>
+  </div>
+
+</template>

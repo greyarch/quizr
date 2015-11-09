@@ -1,4 +1,4 @@
-@Quizzes = new Mongo.Collection 'quizes'
+@Quizzes = new Mongo.Collection 'quizzes'
 
 Meteor.startup ->
   ResultRangeSchema = new SimpleSchema

@@ -11,17 +11,6 @@
         {label: 'Публикуван', name: 'published'}
         {label: 'Линк', name: 'slug'}
       ]
-      auxCollections: ['Quizzes']
-    Sessions:
-      icon: 'bar-chart'
-      color: 'red'
-      tableColumns: [
-        {label: 'Куиз', name: "quiz.name"}
-        {label: 'Резултат, %', name: "result.percentage"}
-        {label: 'Последен въпрос', name: "result.currentQuestion"}
-        {label: 'Създаден на', name: "createdAt"}
-      ]
-      auxCollections: ['Sessions']
   dashboard:
       homeUrl: '/'
 
