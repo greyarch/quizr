@@ -1,0 +1,20 @@
+{
+  "servers": [
+    {
+      "host": "45.32.239.51",
+      "username": "root",
+      "pem": "~/.ssh/id_rsa",
+      "env": {}
+    }
+  ],
+
+  "setupMongo": true,
+  "appName": "quizzer",
+  "app": "~/workspace/quizr",
+  "env": {
+    "PORT": 80,
+    "ROOT_URL": "http://quizzer.bg"
+  },
+  "deployCheckWaitTime": 15,
+  "enableUploadProgressBar": true
+}
