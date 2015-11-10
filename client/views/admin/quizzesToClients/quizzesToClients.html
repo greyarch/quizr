@@ -1,0 +1,35 @@
+<template name="quizzesToClients">
+  <div class="row">
+    <div class="col-md-4 col-center">
+      <div class="form-group">
+        <label for="selectedClient" class="col-sm-2 control-label">Client</label>
+        <div class="col-sm-10">
+          <select class="form-control" id="selectedClient">
+            {{#each clients}}
+            <option value={{_id}}>{{email}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <label>Quizzes</label>
+      <div class="list-group">
+        {{#each quizzes}}
+        <a href="#" class="list-group-item available-quiz">{{name}}</a>
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label>Assigned quizzes</label>
+      <div class="list-group">
+        {{#each assigned}}
+        <a href="#" class="list-group-item assigned-quiz">{{name}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</template>

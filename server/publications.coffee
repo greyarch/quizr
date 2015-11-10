@@ -18,3 +18,5 @@ Meteor.publish 'quizzes for featuring', ->
 
 Meteor.publish 'session results', ->
     Sessions.find {}, {fields: {"quiz.slug": 1, "quiz.name": 1, result: 1}}
+
+Meteor.publish null, -> Meteor.users.find {}, {fields: assignedQuizzes: 1}

@@ -15,3 +15,4 @@
       homeUrl: '/'
 
 AdminDashboard.addSidebarItem 'Featured quizzes', AdminDashboard.path('/featured'), icon: 'thumbs-up'
+AdminDashboard.addSidebarItem 'Assign quizzes to clients', AdminDashboard.path('/quizzes-to-clients'), icon: 'exchange'

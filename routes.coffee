@@ -50,3 +50,9 @@ Meteor.startup ->
       layoutTemplate: 'AdminLayout'
       waitOn: ->
         Meteor.subscribe 'quizzes for featuring'
+    @route 'assignQuizesToClients',
+      path: '/admin/quizzes-to-clients'
+      template: 'quizzesToClients'
+      layoutTemplate: 'AdminLayout'
+      waitOn: ->
+        Meteor.subscribe 'quizzes for featuring'

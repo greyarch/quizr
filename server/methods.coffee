@@ -32,3 +32,5 @@ Meteor.methods
 
   setFeatured: (id, featured) ->
     Quizzes.update {_id: id}, $set: featured: featured
+  setAssignedQuizzes: (id, assigned) ->
+    Meteor.users.update {_id: id}, {$set: assignedQuizzes: assigned}

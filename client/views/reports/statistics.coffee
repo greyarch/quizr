@@ -1,5 +1,5 @@
 Template.statistics.helpers
-  quizzes: -> Quizzes.find()
+  quizzes: -> Quizzes.find(_id: $in: Meteor.user().assignedQuizzes)
   totalSessions: -> Sessions.find('quiz.slug': @slug).count()
   sharedSessions: -> Sessions.find('quiz.slug': @slug, 'result.shared': $exists: true).count()
-  showReport: -> Roles.userIsInRole(Meteor.userId(), 'client')
+  showReport: -> 'admin' in Meteor.user().roles
