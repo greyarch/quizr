@@ -1,4 +1,4 @@
-Template.quizzes.created = ->
+Template.quizzes.onRendered ->
   $('body').css 'background-image', '' # a bit hacky way to reset the background
 
 Template.quizzes.helpers

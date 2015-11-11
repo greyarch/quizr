@@ -1,3 +1,5 @@
+
+
 @AdminConfig =
   name: 'Quizzer'
   nonAdminRedirectRoute: 'entrySignIn'

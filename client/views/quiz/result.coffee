@@ -1,3 +1,7 @@
+Template.result.onRendered ->
+  $('body').css('background-image', "url(#{Sessions.findOne().quiz?.image})") # a bit hacky way to set the background
+  $('body').css('background-size', 'cover')
+
 Template.result.helpers
   session: -> Sessions.findOne()
 
