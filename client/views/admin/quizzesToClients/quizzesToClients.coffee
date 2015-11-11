@@ -14,13 +14,11 @@ Template.quizzesToClients.helpers
   clients: -> Meteor.users.find()
 
 Template.quizzesToClients.events
-  "change #selectedClient": -> console.log @_id;selectedClientId.set @_id
+  "change #selectedClient": (e, t) -> selectedClientId.set t.$('#selectedClient').val()
   "click .available-quiz": ->
     aq = assignedQuizzes.get()
     aq.push @_id
-    Meteor.call 'setAssignedQuizzes', selectedClientId.get(), aq
+    Meteor.call 'setAssignedQuizzes', selectedClientId.get(), _.uniq(aq)
   "click .assigned-quiz": ->
-    console.log @_id
     aq = assignedQuizzes.get().filter (q) => q isnt @_id
-    console.log aq
     Meteor.call 'setAssignedQuizzes', selectedClientId.get(), aq
