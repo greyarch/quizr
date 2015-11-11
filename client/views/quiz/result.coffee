@@ -11,8 +11,8 @@ Template.share.helpers
     author: -> window.location.origin
     summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
-    thumbnail: ->
-      quiz = @?.quiz or Template.parentData()?.quiz
+    thumbnail: =>
+      quiz = @?.quiz
       quiz?.shareImage or quiz?.image
 
 Template.share.events
