@@ -6,14 +6,15 @@ resultFields =
     "quiz.shareImage": 1
     "quiz.image": 1
 
-loginRequired = (pause) ->
-  if not Meteor.userId
-    @render 'entrySignIn'
-    pause()
+protectedRoutes =
+  [
+    "reportStatistics"
+  ]
 
 Meteor.startup ->
-  Router.onBeforeAction loginRequired,
-      only: ['reportStatistics']
+  Router.onBeforeAction ->
+    AccountsEntry.signInRequired @
+  , {only: protectedRoutes}
 
   Router.configure
     layoutTemplate: 'layout'
