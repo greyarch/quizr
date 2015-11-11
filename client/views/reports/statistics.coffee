@@ -1,8 +1,4 @@
-userIs = (role) ->
-  if typeof Meteor.user().roles is 'array'
-    role in Meteor.user().roles
-  else
-    role in Meteor.user().roles?.__global_roles__
+userIs = (role) -> role in Meteor.user().roles?.__global_roles__
 
 Template.statistics.helpers
   quizzes: ->
@@ -14,4 +10,4 @@ Template.statistics.helpers
   totalSessions: -> Sessions.find('quiz.slug': @slug).count()
   sharedSessions: -> Sessions.find('quiz.slug': @slug, 'result.shared': $exists: true).count()
   completedSessions: -> Sessions.find('quiz.slug': @slug, 'result.completed': true).count()
-  showReport: -> userIs 'client'
+  showReport: -> userIs('client') or userIs('admin')
