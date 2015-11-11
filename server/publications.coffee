@@ -11,7 +11,15 @@ Meteor.publish 'quiz', (slug, fields) ->
     Quizzes.find {slug: slug}, {fields: fields}
   else
     Quizzes.find slug: slug
+
 Meteor.publish 'session', (id, fields) -> Sessions.find {_id: id}, fields || {}
+
+Meteor.publish 'session and quiz', (sessId) ->
+  session = Sessions.find _id: sessId
+  [
+    session
+    Quizzes.find slug: session.fetch()[0].quiz.slug
+  ]
 
 Meteor.publish 'quizzes for featuring', ->
     Quizzes.find {}, {fields: {name: 1, featured: 1}}

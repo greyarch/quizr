@@ -30,8 +30,8 @@ Meteor.startup ->
     @route 'quiz',
       path: '/q/:sessId'
       template: 'quiz'
-      waitOn: ->
-        Meteor.subscribe 'session', @params.sessId
+      waitOn: -> Meteor.subscribe 'session and quiz', @params.sessId
+
     @route 'start',
       path: '/start/:quiz/:sessId?'
       template: 'startPage'

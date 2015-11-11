@@ -1,11 +1,6 @@
 Template.quizzes.created = ->
   $('body').css 'background-image', '' # a bit hacky way to reset the background
 
-Template.quizzes.rendered = ->
-  $('.quiz').bigtext
-    maxfontsize: 24
-    minfontsize: 14
-
 Template.quizzes.helpers
   quizzes: -> Quizzes.find()
   featuredQuizzes: -> Quizzes.find featured: true

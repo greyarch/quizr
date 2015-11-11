@@ -3,6 +3,11 @@ Meteor.methods
   updateQuiz: (doc) -> Quizzes.update {_id: doc._id}, doc
   removeQuiz: (docId) -> Quizzes.remove _id: docId
 
+  markAsCompleted: (sessId) ->
+    Sessions.update _id: sessId,
+      $set:
+        "result.completed": true
+
   sendMsg: (from, text) ->
     check([from, text], [String]);
     @unblock();
@@ -24,10 +29,11 @@ Meteor.methods
   createSession: (quiz) ->
     quiz = Quizzes.findOne slug: quiz
     Sessions.insert
-      quiz: quiz
+      quiz: _.pick quiz, 'name', 'slug', 'image', 'shareImage'
       result:
         currentQuestion: 1
         correctCount: 0
+        completed: false
         responses: []
 
   setFeatured: (id, featured) ->

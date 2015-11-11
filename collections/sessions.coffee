@@ -1,26 +1,26 @@
 @Sessions = new Mongo.Collection 'sessions'
 
-Sessions.allow
-  insert: -> true
-  update: -> true
-  remove: -> false
+quizSchema = new SimpleSchema
+  name:
+    type: String
+  slug:
+    type: String
+  image:
+    type: String
+  shareImage:
+    type: String
 
 Sessions.attachSchema new SimpleSchema
   quiz:
-    type: Object
-    blackbox: true
-  "quiz.name":
-    type: String
+    type: quizSchema
   result:
     type: Object
     blackbox: true
-  "result.percentage":
-    type: Number
-  "result.currentQuestion":
-    type: Number
   createdAt:
     type: Date
-    label: 'Date'
-    autoValue: ->
-      if this.isInsert
-        new Date()
+    label: 'Created'
+    autoValue: -> if @isInsert then new Date()
+  updatedAt:
+    type: Date
+    label: 'Updated'
+    autoValue: -> new Date()
