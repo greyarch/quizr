@@ -7,10 +7,10 @@ Template.result.helpers
 
 Template.share.helpers
   shareData: ->
-    markers = if @quiz.markers then "\n#{@quiz.markers}" else ''
-    title: "#{@result?.text}#{markers}"
+    markers = if @quiz?.markers then "\n#{@quiz.markers}" else ''
+    title: "#{@result?.text}"
     author: -> window.location.origin
-    summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?"
+    summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?#{markers}"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
     thumbnail: =>
       quiz = @?.quiz

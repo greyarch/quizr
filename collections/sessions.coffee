@@ -1,18 +1,9 @@
 @Sessions = new Mongo.Collection 'sessions'
 
-quizSchema = new SimpleSchema
-  name:
-    type: String
-  slug:
-    type: String
-  image:
-    type: String
-  shareImage:
-    type: String
-
 Sessions.attachSchema new SimpleSchema
   quiz:
-    type: quizSchema
+    type: Object
+    blackbox: true
   result:
     type: Object
     blackbox: true

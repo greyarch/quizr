@@ -5,6 +5,7 @@ resultFields =
     "quiz.slug": 1
     "quiz.shareImage": 1
     "quiz.image": 1
+    "quiz.markers": 1
 
 protectedRoutes =
   [
