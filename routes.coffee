@@ -11,7 +11,6 @@ protectedRoutes =
     "reportStatistics"
   ]
 
-# Meteor.startup ->
 Router.onBeforeAction ->
   AccountsEntry.signInRequired @
 , {only: protectedRoutes}

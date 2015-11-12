@@ -43,6 +43,10 @@ Meteor.startup ->
     published:
       type: Boolean
       label: 'Публикуван куиз'
+    featured:
+      optional: true
+      type: Boolean
+      label: "Препоръчан куиз"
     slug:
       type: String
       label: '* Линк към куиза'
@@ -63,6 +67,10 @@ Meteor.startup ->
       label: 'Линк към картинка за споделяне (Facebook, etc.)'
       optional: true
       regEx: SimpleSchema.RegEx.Url
+    markers:
+      type: String
+      label: 'Трасиращи маркери/хаштагове, разделени с интервал: #quizzer-slayer #quizzer-queensryche'
+      optional: true
     results:
       type: [ResultRangeSchema]
       label: 'Интервал'
@@ -70,7 +78,3 @@ Meteor.startup ->
     questions:
       type: [QuestionSchema]
       label: 'Въпрос'
-    featured:
-      optional: true
-      type: Boolean
-      label: "Препоръчан куиз"

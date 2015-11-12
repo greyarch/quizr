@@ -29,7 +29,7 @@ Meteor.methods
   createSession: (quiz) ->
     quiz = Quizzes.findOne slug: quiz
     Sessions.insert
-      quiz: _.pick quiz, 'name', 'slug', 'image', 'shareImage'
+      quiz: _.pick quiz, 'name', 'slug', 'image', 'shareImage', 'markers'
       result:
         currentQuestion: 1
         correctCount: 0

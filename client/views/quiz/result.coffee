@@ -7,7 +7,8 @@ Template.result.helpers
 
 Template.share.helpers
   shareData: ->
-    title: @result?.text
+    markers = if @quiz.markers then "\n#{@quiz.markers}" else ''
+    title: "#{@result?.text}#{markers}"
     author: -> window.location.origin
     summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
