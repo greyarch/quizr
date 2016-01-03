@@ -4,13 +4,15 @@ Template.result.onRendered ->
 
 Template.result.helpers
   session: -> Sessions.findOne()
+  markers: ->
+    console.log @quiz?.markers
+    @quiz?.markers
 
 Template.share.helpers
   shareData: ->
-    markers = if @quiz?.markers then "\n#{@quiz.markers}" else ''
     title: "#{@result?.text}"
     author: -> window.location.origin
-    summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?#{markers}"
+    summary: "Аз отговорих правилно на #{@result?.percentage}% от въпросите, а вие?"
     url: "#{window.location.origin}/start/#{@quiz?.slug}/#{@_id}"
     thumbnail: =>
       quiz = @?.quiz
